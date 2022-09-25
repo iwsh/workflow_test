@@ -1,6 +1,6 @@
 import yaml
 
-modeling_table = ../data/modeling_table.yml
+modeling_table = "../data/modeling_table.yml"
 
 
 def main():
@@ -10,5 +10,5 @@ def main():
     print(f"train with modeling data {dic_table}")
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     main()

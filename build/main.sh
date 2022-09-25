@@ -8,5 +8,7 @@ fi
 
 tag=$1
 git checkout refs/tags/${tag}
+rm -r ../run/workflow
+rm ../run/pipeline.sh
 python make_pipeline.py ${tag}
 

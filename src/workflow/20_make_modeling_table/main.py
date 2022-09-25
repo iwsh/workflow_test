@@ -3,8 +3,8 @@ import yaml
 
 # モデリング用データテーブル
 # 簡単のため、バージョン情報のみyamlで格納
-analysis_table = ../data/analysis_table.yml
-modeling_table = ../data/modeling_table.yml
+analysis_table = "../data/analysis_table.yml"
+modeling_table = "../data/modeling_table.yml"
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--ver')
@@ -43,5 +43,5 @@ def update_table(table):
         yaml.dump(dic_table, f, default_flow_style=False)
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     main()

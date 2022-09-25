@@ -4,7 +4,7 @@ import shutil
 import re
 
 argv = sys.argv
-tag = argv[0]
+tag = argv[1]
 
 outdir = "../run"
 
@@ -21,14 +21,14 @@ def main():
     # 簡易のためrun下に資材をまとめて全処理を実行するシェルスクリプトを作成する
     # 本来はパイプライン管理ツールを利用して処理を定義する
 
-    shutils.copytree("../src/workflow", "../run/workflow")
+    shutil.copytree("../src/workflow", "../run/workflow")
 
     init = "dataver=$1"
     run_extraction = "python workflow/10_make_analysis_table/main.py --ver " + extraction_ver + " --dataver ${dataver}"
     run_preprocess = "python workflow/20_make_modeling_table/main.py --ver " + preprocess_ver + " --dataver ${dataver}"
     run_training = "python workflow/30_training/main.py"
 
-    run_all = [init, run_extraction, run_preprocess, run_training].join("\n")
+    run_all = "\n".join([init, run_extraction, run_preprocess, run_training])
 
     with open("../run/pipeline.sh", "w") as f:
         f.write(run_all)
